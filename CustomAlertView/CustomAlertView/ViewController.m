@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "ChargeAlertView.h"
 #import "CustomActionSheet.h"
+#import "ShareActionSheet.h"
 
 @interface ViewController ()
 
@@ -33,7 +34,10 @@
     [alertView show];
 }
 
-- (IBAction)ClickActionSheet:(id)sender {
+- (IBAction)ClickActionSheet:(id)sender
+{
+    ShareActionSheet *actionSheet = [[ShareActionSheet alloc] initWithdelegate:self];
+    [actionSheet show];
 }
 
 

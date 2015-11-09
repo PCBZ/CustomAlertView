@@ -23,6 +23,7 @@ struct buttonParams
 
 @interface CustomIOSAlertView : UIView
 
+
 @property (nonatomic, strong) UIView *backgroundView;
 @property (nonatomic, retain) UIView *parentView;    // The parent view this 'dialog' is attached to
 @property (nonatomic, retain) UIView *dialogView;    // Dialog's container view
