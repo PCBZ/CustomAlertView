@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -17,6 +18,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Mqw-0R-0XE">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <animations/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e0v-a0-2wu">
                                 <rect key="frame" x="252" y="297" width="96" height="38"/>
                                 <animations/>
@@ -24,7 +29,9 @@
                                     <constraint firstAttribute="height" constant="38" id="AqA-XO-oPc"/>
                                     <constraint firstAttribute="width" constant="96" id="a79-2Z-UWD"/>
                                 </constraints>
-                                <state key="normal" title="ActionSheet"/>
+                                <state key="normal" title="ActionSheet">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <connections>
                                     <action selector="ClickActionSheet:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KX6-D0-uu0"/>
                                 </connections>
@@ -33,7 +40,7 @@
                                 <rect key="frame" x="252" y="214" width="96" height="38"/>
                                 <animations/>
                                 <state key="normal" title="AlertView">
-                                    <color key="titleShadowColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="ClickAlertView:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kDN-Xt-hCv"/>
@@ -44,17 +51,45 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="e0v-a0-2wu" firstAttribute="top" secondItem="1PS-Jk-pQ1" secondAttribute="bottom" constant="45" id="11c-P0-d4D"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Mqw-0R-0XE" secondAttribute="bottom" id="16C-ql-mdQ"/>
+                            <constraint firstItem="e0v-a0-2wu" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="41o-ig-r7w"/>
+                            <constraint firstItem="Mqw-0R-0XE" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="8ai-ba-RPX"/>
+                            <constraint firstItem="Mqw-0R-0XE" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="N98-AH-mET"/>
                             <constraint firstItem="e0v-a0-2wu" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="UaX-iv-pYp"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Mqw-0R-0XE" secondAttribute="trailing" constant="-20" id="cjW-LY-cD8"/>
+                            <constraint firstItem="Mqw-0R-0XE" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ePr-j3-xZM"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Mqw-0R-0XE" secondAttribute="bottom" id="ecc-r2-ijE"/>
+                            <constraint firstItem="Mqw-0R-0XE" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="edv-z6-oKq"/>
                             <constraint firstItem="1PS-Jk-pQ1" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="194" id="gvm-4N-qXQ"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="e0v-a0-2wu" secondAttribute="bottom" constant="265" id="iuL-vI-Vfj"/>
                             <constraint firstItem="1PS-Jk-pQ1" firstAttribute="leading" secondItem="e0v-a0-2wu" secondAttribute="leading" id="lA7-hY-aLR"/>
+                            <constraint firstItem="Mqw-0R-0XE" firstAttribute="centerX" secondItem="e0v-a0-2wu" secondAttribute="centerX" id="nnA-Me-12p"/>
+                            <constraint firstItem="Mqw-0R-0XE" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="pE7-i9-mz7"/>
+                            <constraint firstItem="Mqw-0R-0XE" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="pc0-1e-5Ca"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Mqw-0R-0XE" secondAttribute="trailing" constant="-20" id="uNQ-AZ-yew"/>
+                            <constraint firstItem="Mqw-0R-0XE" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="vwy-UA-l5u"/>
                             <constraint firstItem="1PS-Jk-pQ1" firstAttribute="trailing" secondItem="e0v-a0-2wu" secondAttribute="trailing" id="wlw-4T-U6P"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="ePr-j3-xZM"/>
+                                <exclude reference="edv-z6-oKq"/>
+                                <exclude reference="nnA-Me-12p"/>
+                                <exclude reference="UaX-iv-pYp"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="actionSheet" destination="e0v-a0-2wu" id="Ggh-yS-iQ1"/>
+                        <outlet property="alertView" destination="1PS-Jk-pQ1" id="IZG-Te-zOD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="350" y="447"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="background.jpg" width="104" height="25"/>
+    </resources>
 </document>

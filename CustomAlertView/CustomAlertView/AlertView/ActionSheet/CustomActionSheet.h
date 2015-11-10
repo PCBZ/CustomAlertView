@@ -22,33 +22,35 @@
 
 @property (nonatomic, weak) id<CustomActionSheetDelegate> delegate;
 
-@property (nonatomic, copy) NSString *title;
-@property (nonatomic, copy) NSString *cancelButtonTitle;
 
-@property (nonatomic, strong) UIView *backgroundView;
-@property (nonatomic, strong) UIView *contentView;
-@property (nonatomic, strong) UILabel *titleLabel;
-@property (nonatomic, strong) UIView *buttonView;
+@property (nonatomic, copy  ) NSString *cancelButtonTitle;
 
-@property (nonatomic, assign) CGFloat titleViewHeight;
+@property (nonatomic, strong) UIView   *backgroundView;
+@property (nonatomic, strong) UIView   *contentView;
+// A default blurView
+@property (nonatomic, strong) UIView   *coverView;
+@property (nonatomic, strong) UILabel  *titleLabel;
+@property (nonatomic, strong) UIView   *buttonView;
+// A default blurView
+@property (nonatomic, strong) UIView   *cancelButtonCoverView;
+
+@property (nonatomic, assign) CGFloat  titleViewHeight;
 
 
+- (id)initWithTitle:(NSString *)title Delegate:(id)delegate TitleViewHeight:(CGFloat)titleViewHeight ButtonHeight:(CGFloat)buttonHeight CancelButtonTitle:(NSString *)cancelButtonTitle CancelButtonGap:(CGFloat)gap OtherButtonTitles:(NSString *)otherButtonTitles, ... NS_REQUIRES_NIL_TERMINATION;
 
-- (id)initWithTitle:(NSString *)title delegate:(id)delegate titleViewHeight:(CGFloat)titleViewHeight cancelButtonTitle:(NSString *)cancelButtonTitle otherButtonTitles:(NSString *)otherButtonTitles, ... NS_REQUIRES_NIL_TERMINATION;
+- (id)initWithTitle:(NSString *)title TitleViewHeight:(CGFloat)titleViewHeight CancelButtonTitle:(NSString *)cancelButtonTitle OtherButtonTitles:(NSString *)otherButtonTitles, ... NS_REQUIRES_NIL_TERMINATION;
+
 /**
  *  显示和隐藏
  */
 - (void)show;
 - (void)hide;
 
-- (void)setTitle:(NSString *)title;
-- (void)setCancelButtonTitle:(NSString *)cancelButtonTitle;
 
 - (void)setButtonTitleColor:(UIColor *)color BackgroundColor:(UIColor *)backgroundColor fontSize:(CGFloat)font atIndex:(NSInteger)index Alpha:(CGFloat)alpha;
 
 - (void)setCancelButtonTitleColor:(UIColor *)color BackgroundColor:(UIColor *)backgroundColor fontSize:(CGFloat)font Alpha:(CGFloat)alpha;
-
-- (void)setTitleLabelHeight:(CGFloat)height;
 
 @end
 

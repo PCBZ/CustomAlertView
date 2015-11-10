@@ -18,7 +18,6 @@
 		9DFD41A31BF19F2D008AC679 /* CustomIOSAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DFD41A01BF19F2D008AC679 /* CustomIOSAlertView.m */; };
 		9DFD41A41BF19F2D008AC679 /* PCBZCustomAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DFD41A21BF19F2D008AC679 /* PCBZCustomAlertView.m */; };
 		9DFD41AF1BF19F39008AC679 /* CustomActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DFD41A71BF19F39008AC679 /* CustomActionSheet.m */; };
-		9DFD41B01BF19F39008AC679 /* ShareActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DFD41A91BF19F39008AC679 /* ShareActionSheet.m */; };
 		9DFD41B11BF19F39008AC679 /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DFD41AC1BF19F39008AC679 /* UIColor+Hex.m */; };
 		9DFD41B21BF19F39008AC679 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DFD41AE1BF19F39008AC679 /* UIView+Extension.m */; };
 /* End PBXBuildFile section */
@@ -63,8 +62,6 @@
 		9DFD41A21BF19F2D008AC679 /* PCBZCustomAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCBZCustomAlertView.m; sourceTree = "<group>"; };
 		9DFD41A61BF19F39008AC679 /* CustomActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomActionSheet.h; sourceTree = "<group>"; };
 		9DFD41A71BF19F39008AC679 /* CustomActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomActionSheet.m; sourceTree = "<group>"; };
-		9DFD41A81BF19F39008AC679 /* ShareActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareActionSheet.h; sourceTree = "<group>"; };
-		9DFD41A91BF19F39008AC679 /* ShareActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareActionSheet.m; sourceTree = "<group>"; };
 		9DFD41AB1BF19F39008AC679 /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
 		9DFD41AC1BF19F39008AC679 /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
 		9DFD41AD1BF19F39008AC679 /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
@@ -177,8 +174,6 @@
 			children = (
 				9DFD41A61BF19F39008AC679 /* CustomActionSheet.h */,
 				9DFD41A71BF19F39008AC679 /* CustomActionSheet.m */,
-				9DFD41A81BF19F39008AC679 /* ShareActionSheet.h */,
-				9DFD41A91BF19F39008AC679 /* ShareActionSheet.m */,
 			);
 			name = ActionSheet;
 			path = AlertView/ActionSheet;
@@ -330,7 +325,6 @@
 				9DFD41AF1BF19F39008AC679 /* CustomActionSheet.m in Sources */,
 				9DFD41A31BF19F2D008AC679 /* CustomIOSAlertView.m in Sources */,
 				9DFD415C1BF03F7D008AC679 /* ViewController.m in Sources */,
-				9DFD41B01BF19F39008AC679 /* ShareActionSheet.m in Sources */,
 				9DFD41A41BF19F2D008AC679 /* PCBZCustomAlertView.m in Sources */,
 				9DFD41B11BF19F39008AC679 /* UIColor+Hex.m in Sources */,
 				9DFD41591BF03F7D008AC679 /* AppDelegate.m in Sources */,

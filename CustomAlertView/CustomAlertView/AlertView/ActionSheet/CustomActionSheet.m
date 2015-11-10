@@ -9,14 +9,11 @@
 #import "CustomActionSheet.h"
 #import "UIColor+Hex.h"
 #import "UIView+Extension.h"
-//#import "JWBlurView.h"
-
-//#import "FunctionAPI.h"
 
 
 static NSInteger const DEFAULT_CONTENTVIEWHEIGHT = 350;
 static NSInteger const DEFAULT_TITLELABELVIEWHEIGHT = 200;
-static NSInteger const DEFAULT_BUTTONHEIGHT = 50;
+static NSInteger const DEFAULT_BUTTONHEIHGT = 50;
 static NSInteger const DEFAULT_CANCALBUTTONGAP = 5;
 
 
@@ -29,38 +26,70 @@ static NSInteger const DEFAULT_CANCALBUTTONGAP = 5;
 
 @property (nonatomic, strong) UITapGestureRecognizer *tapGestureRecognizer;
 
+@property (nonatomic, assign) CGFloat buttonHeight;
+@property (nonatomic, assign) CGFloat cancelButtonGap;
+
 @end
 
 
 
 @implementation CustomActionSheet
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
-
 #pragma mark - init
 
-- (id)initWithTitle:(NSString *)title delegate:(id)delegate titleViewHeight:(CGFloat)titleViewHeight cancelButtonTitle:(NSString *)cancelButtonTitle otherButtonTitles:(NSString *)otherButtonTitles, ...
+- (instancetype)initWithTitle:(NSString *)title TitleViewHeight:(CGFloat)titleViewHeight CancelButtonTitle:(NSString *)cancelButtonTitle OtherButtonTitles:(NSString *)otherButtonTitles, ...
+{
+    self = [super initWithFrame:[UIScreen mainScreen].bounds];
+    if (self) {
+        self.titleViewHeight = titleViewHeight;
+        self.cancelButtonTitle = cancelButtonTitle;
+        
+        va_list args;
+        va_start(args, otherButtonTitles);
+        if (otherButtonTitles) {
+            [self.buttonTitleArray addObject:otherButtonTitles];
+            while (TRUE) {
+                NSString *otherButtonTitle = va_arg(args, NSString *);
+                if (otherButtonTitle == nil) {
+                    break;
+                } else {
+                    [self.buttonTitleArray addObject:otherButtonTitle];
+                }
+            }
+        }
+        va_end(args);
+        self.backgroundColor = [UIColor clearColor];
+        self.backgroundView.alpha = 0;
+        
+        self.titleLabel.text = title;
+        self.buttonView.backgroundColor = [UIColor clearColor];
+        
+        if (self.cancelButtonTitle) {
+            [self.cancelButton setTitle:self.cancelButtonTitle forState:UIControlStateNormal];
+        }
+        
+        self.contentView.frame = CGRectMake(0, self.height, self.contentView.width, self.contentView.height);
+
+    }
+    return self;
+}
+
+- (id)initWithTitle:(NSString *)title Delegate:(id)delegate TitleViewHeight:(CGFloat)titleViewHeight ButtonHeight:(CGFloat)buttonHeight CancelButtonTitle:(NSString *)cancelButtonTitle CancelButtonGap:(CGFloat)gap OtherButtonTitles:(NSString *)otherButtonTitles, ...
 {
     self = [super initWithFrame:[UIScreen mainScreen].bounds];
     if (self) {
 
         self.delegate = delegate;
         self.titleViewHeight = titleViewHeight;
+        self.buttonHeight = buttonHeight;
         self.cancelButtonTitle = cancelButtonTitle;
-//        self.buttonArray = [NSMutableArray array];
-//        self.buttonTitleArray = [NSMutableArray array];
+        self.cancelButtonGap = gap;
         
         va_list args;
         va_start(args, otherButtonTitles);
         if (otherButtonTitles) {
             [self.buttonTitleArray addObject:otherButtonTitles];
-            while (1) {
+            while (TRUE) {
                 NSString *otherButtonTitle = va_arg(args, NSString *);
                 if (otherButtonTitle == nil) {
                     break;
@@ -113,8 +142,7 @@ static NSInteger const DEFAULT_CANCALBUTTONGAP = 5;
 - (UIView *)backgroundView
 {
     if (!_backgroundView) {
-        _backgroundView = [[UIView alloc] initWithFrame:self.frame];
-//        _backgroundView.alpha = 1.0;
+        _backgroundView = [[UIView alloc] initWithFrame:self.bounds];
         _backgroundView.backgroundColor = [UIColor blackColor];
         [_backgroundView addGestureRecognizer:self.tapGestureRecognizer];
         [self addSubview:_backgroundView];
@@ -125,18 +153,24 @@ static NSInteger const DEFAULT_CANCALBUTTONGAP = 5;
 - (UIView *)contentView
 {
     if (!_contentView) {
-        _contentView = [[UIVisualEffectView alloc] initWithEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleLight]];
-        _contentView.backgroundColor = [UIColor whiteColorWithAlpha:0.8];
-        
-        _contentView.width = [UIScreen mainScreen].bounds.size.width;
+        _contentView        = [[UIView alloc] init];
+        _contentView.width  = [UIScreen mainScreen].bounds.size.width;
         _contentView.height = DEFAULT_CONTENTVIEWHEIGHT;
-        _contentView.x = 0;
-        _contentView.y = [UIScreen mainScreen].bounds.size.height - DEFAULT_CONTENTVIEWHEIGHT;
-        
+        _contentView.x      = 0;
+        _contentView.y      = [UIScreen mainScreen].bounds.size.height - DEFAULT_CONTENTVIEWHEIGHT;
         [self addSubview:_contentView];
-        
     }
     return _contentView;
+}
+
+- (UIView *)coverView
+{
+    if (!_coverView) {
+        _coverView = [[UIVisualEffectView alloc] initWithEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleLight]];
+        _coverView.backgroundColor = [UIColor whiteColorWithAlpha:0.5];
+        [self.contentView addSubview:_coverView];
+    }
+    return _coverView;
 }
 
 - (UILabel *)titleLabel
@@ -146,7 +180,7 @@ static NSInteger const DEFAULT_CANCALBUTTONGAP = 5;
         _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.contentView.width, titleHeight)];
         _titleLabel.textAlignment = NSTextAlignmentCenter;
         _titleLabel.backgroundColor = [UIColor clearColor];
-//        [self.contentView addSubview:_titleLabel];
+        [self.coverView addSubview:_titleLabel];
     }
     return _titleLabel;
 }
@@ -157,21 +191,20 @@ static NSInteger const DEFAULT_CANCALBUTTONGAP = 5;
         _buttonView = [[UIView alloc] initWithFrame:CGRectMake(0, self.titleLabel.height, self.contentView.width, 0)];
         _buttonView.backgroundColor = [UIColor clearColor];
         
+        CGFloat tempButtonHeight = self.buttonHeight == 0 ? DEFAULT_BUTTONHEIHGT : self.buttonHeight;
+        
         if (self.buttonTitleArray.count > 0) {
             for (int i = 0; i < self.buttonTitleArray.count; i++) {
-                UIView *seperatorline = [[UIView alloc] initWithFrame:CGRectMake(0, i * DEFAULT_BUTTONHEIGHT, self.contentView.width, 1)];
-                seperatorline.backgroundColor = [UIColor colorWithHex:0xcccccc];
-//                seperatorline.alpha = 0.5;
+                UIView *seperatorline = [[UIView alloc] initWithFrame:CGRectMake(0, i * tempButtonHeight, self.contentView.width, 1)];
+                seperatorline.backgroundColor = [UIColor colorWithHex:0x666666];
                 [_buttonView addSubview:seperatorline];
                 
-                UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-                button.frame = CGRectMake(0, i * DEFAULT_BUTTONHEIGHT + 1, self.contentView.width, DEFAULT_BUTTONHEIGHT);
-//                UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, i * DEFAULT_BUTTONHEIGHT + 1, self.contentView.width, DEFAULT_BUTTONHEIGHT)];
+                UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
+                button.frame = CGRectMake(0, i * tempButtonHeight + 1, self.contentView.width, tempButtonHeight);
                 button.backgroundColor = [UIColor clearColor];
                 button.titleLabel.font = [UIFont systemFontOfSize:18];
                 [button setTitle:self.buttonTitleArray[i] forState:UIControlStateNormal];
                 [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-//                [button setBackgroundImage:[FunctionAPI getImageWithRGBColor:[UIColor colorWithHex:0xe5e5e5]] forState:UIControlStateHighlighted];
                 
                 [button addTarget:self action:@selector(ButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
                 [self.buttonArray addObject:button];
@@ -180,57 +213,58 @@ static NSInteger const DEFAULT_CANCALBUTTONGAP = 5;
                 _buttonView.height += seperatorline.height + button.height;
                 self.contentView.height = _buttonView.height + self.titleLabel.height;
                 self.contentView.y = self.height - self.contentView.height;
+                self.coverView.frame = self.contentView.bounds;
             }
             _buttonView.layer.cornerRadius = 0;
             _buttonView.layer.masksToBounds = YES;
             [self.contentView addSubview:_buttonView];
         }
-//        NSLog(@"button View %@", NSStringFromCGRect(_buttonView.frame));
-        UIVisualEffectView *blurView = [[UIVisualEffectView alloc] initWithEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleLight]];
-        blurView.frame = _buttonView.frame;
-        blurView.backgroundColor = [UIColor whiteColorWithAlpha:0.8];
-        [_buttonView addSubview:blurView];
+
+        self.coverView.layer.cornerRadius = 16.0;
+        self.coverView.layer.masksToBounds = YES;
     }
-//    NSLog(@"buttonview %@", NSStringFromCGRect(_buttonView.frame));
     return _buttonView;
 }
 
 - (UIButton *)cancelButton
 {
     if (!_cancelButton) {
-        _cancelButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, self.contentView.width, DEFAULT_BUTTONHEIGHT)];
-        _cancelButton.backgroundColor = [UIColor whiteColor];
+        CGFloat tempButtonHeight = self.buttonHeight == 0 ? DEFAULT_BUTTONHEIHGT : self.buttonHeight;
+        
+        _cancelButton                 = [UIButton buttonWithType:UIButtonTypeSystem];
+        _cancelButton.frame           = CGRectMake(0, 0, self.contentView.width, tempButtonHeight);
+        _cancelButton.backgroundColor = UIColor.clearColor;
         _cancelButton.titleLabel.font = [UIFont systemFontOfSize:18];
-        _cancelButton.layer.cornerRadius = 5.0;
-        _cancelButton.layer.masksToBounds = YES;
         [_cancelButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         [_cancelButton addTarget:self action:@selector(cancelButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
         
-        self.contentView.height += _cancelButton.height + DEFAULT_CANCALBUTTONGAP;
-        self.contentView.y = self.height - self.contentView.height;
+        CGFloat cancelButtonGap = self.cancelButtonGap == 0 ? DEFAULT_CANCALBUTTONGAP : self.cancelButtonGap;
         
+        self.contentView.height += _cancelButton.height + cancelButtonGap;
+        self.contentView.y      = self.height - self.contentView.height;
+        self.buttonView.height  += _cancelButton.height + cancelButtonGap;
+        _cancelButton.y         = self.buttonView.height - tempButtonHeight;
 
-        self.buttonView.height += _cancelButton.height + DEFAULT_CANCALBUTTONGAP;
-        
-        _cancelButton.y = self.buttonView.height - DEFAULT_BUTTONHEIGHT;
-        
+        [self.buttonView addSubview:self.cancelButtonCoverView];
         [self.buttonView addSubview:_cancelButton];
     }
     return _cancelButton;
 }
 
+- (UIView *)cancelButtonCoverView
+{
+    if (!_cancelButtonCoverView) {
+        _cancelButtonCoverView = [[UIVisualEffectView alloc] initWithEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleLight]];
+        _cancelButtonCoverView.backgroundColor = [UIColor whiteColorWithAlpha:0.5];
+        _cancelButtonCoverView.frame = self.cancelButton.frame;
+        _cancelButtonCoverView.layer.cornerRadius = 16.0;
+        _cancelButtonCoverView.layer.masksToBounds = YES;
+    }
+    return _cancelButtonCoverView;
+}
+
 #pragma mark - some setter to public
 
-- (void)setTitle:(NSString *)title
-{
-    _title = title;
-}
-
-- (void)setCancelButtonTitle:(NSString *)cancelButtonTitle
-{
-    _cancelButtonTitle = cancelButtonTitle;
-//    [self.cancelButton setTitle:cancelButtonTitle forState:UIControlStateNormal];
-}
 
 - (void)setButtonTitleColor:(UIColor *)color BackgroundColor:(UIColor *)backgroundColor fontSize:(CGFloat)font atIndex:(NSInteger)index Alpha:(CGFloat)alpha
 {
@@ -249,12 +283,6 @@ static NSInteger const DEFAULT_CANCALBUTTONGAP = 5;
     }
 }
 
-- (void)setTitleViewHeight:(CGFloat)titleViewHeight
-{
-    _titleViewHeight = titleViewHeight;
-    _titleLabel.height = titleViewHeight;
-}
-
 - (void)setCancelButtonTitleColor:(UIColor *)color BackgroundColor:(UIColor *)backgroundColor fontSize:(CGFloat)font Alpha:(CGFloat)alpha
 {
     if (color) {
@@ -270,7 +298,6 @@ static NSInteger const DEFAULT_CANCALBUTTONGAP = 5;
         self.cancelButton.alpha = alpha;
     }
 }
-
 
 - (void)show
 {
@@ -321,28 +348,11 @@ static NSInteger const DEFAULT_CANCALBUTTONGAP = 5;
 
 - (void)cancelButtonPressed:(UIButton *)button
 {
-
     if (self.delegate && [self.delegate respondsToSelector:@selector(actionSheetCancel:)]) {
         [self.delegate customActionSheetCancelClick:self];
     }
     [self hide];
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 @end

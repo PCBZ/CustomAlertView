@@ -8,15 +8,14 @@
 
 #import "ViewController.h"
 #import "CustomActionSheet.h"
-#import "ShareActionSheet.h"
 #import "PCBZCustomAlertView.h"
 #import "UIView+Extension.h"
 #import "UIColor+Hex.h"
 
-#define tintColor ([[[UIApplication sharedApplication] delegate] window].tintColor)
-
 @interface ViewController ()
 
+@property (weak, nonatomic) IBOutlet UIButton *alertView;
+@property (weak, nonatomic) IBOutlet UIButton *actionSheet;
 
 @end
 
@@ -34,7 +33,6 @@
 
 - (IBAction)ClickAlertView:(id)sender
 {
-
     PCBZCustomAlertView *alertView = [[PCBZCustomAlertView alloc] init];
     alertView.containerView.size   = CGSizeMake(300, 120);
     alertView.buttonTitles         = @[@"OK",@"Twenkle",@"Cancel"];
@@ -49,12 +47,12 @@
     NSDictionary *dic1 = [NSDictionary dictionaryWithObjectsAndKeys:
                           [UIColor whiteColor],         @"backgroundColor",
                           [UIFont systemFontOfSize:14], @"buttonFont",
-                          tintColor,                    @"buttonColor",
+                          self.view.tintColor,          @"buttonColor",
                           nil];
     NSDictionary *dic2 = [NSDictionary dictionaryWithObjectsAndKeys:
                           [UIColor whiteColor],         @"backgroundColor",
                           [UIFont systemFontOfSize:14], @"buttonFont",
-                          tintColor,                    @"buttonColor",
+                          UIColor.blackColor,           @"buttonColor",
                           nil];
     NSDictionary *dic3 = [NSDictionary dictionaryWithObjectsAndKeys:
                           [UIColor whiteColor],             @"backgroundColor",
@@ -70,9 +68,43 @@
 
 - (IBAction)ClickActionSheet:(id)sender
 {
-    ShareActionSheet *actionSheet = [[ShareActionSheet alloc] initWithdelegate:self];
+    CustomActionSheet *actionSheet = [[CustomActionSheet alloc] initWithTitle:@"Title" Delegate:self TitleViewHeight:120 ButtonHeight:50 CancelButtonTitle:@"Cancel" CancelButtonGap:8 OtherButtonTitles:@"OK1", @"OK2", nil];
+    [actionSheet setButtonTitleColor:self.view.tintColor BackgroundColor:nil fontSize:18 atIndex:0 Alpha:1];
     [actionSheet show];
 }
 
 
 @end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
