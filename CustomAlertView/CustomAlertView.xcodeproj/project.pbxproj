@@ -15,12 +15,12 @@
 		9DFD41641BF03F7D008AC679 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DFD41621BF03F7D008AC679 /* LaunchScreen.storyboard */; };
 		9DFD416F1BF03F7E008AC679 /* CustomAlertViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DFD416E1BF03F7E008AC679 /* CustomAlertViewTests.m */; };
 		9DFD417A1BF03F7E008AC679 /* CustomAlertViewUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DFD41791BF03F7E008AC679 /* CustomAlertViewUITests.m */; };
-		9DFD418C1BF041B1008AC679 /* CustomActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DFD41891BF041B1008AC679 /* CustomActionSheet.m */; };
-		9DFD418D1BF041B1008AC679 /* CustomIOSAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DFD418B1BF041B1008AC679 /* CustomIOSAlertView.m */; };
-		9DFD41911BF044C3008AC679 /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DFD41901BF044C3008AC679 /* UIColor+Hex.m */; };
-		9DFD41941BF04863008AC679 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DFD41931BF04863008AC679 /* UIView+Extension.m */; };
-		9DFD419A1BF050E5008AC679 /* ShareActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DFD41991BF050E5008AC679 /* ShareActionSheet.m */; };
-		9DFD419D1BF06BE0008AC679 /* PCBZCustomAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DFD419C1BF06BE0008AC679 /* PCBZCustomAlertView.m */; };
+		9DFD41A31BF19F2D008AC679 /* CustomIOSAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DFD41A01BF19F2D008AC679 /* CustomIOSAlertView.m */; };
+		9DFD41A41BF19F2D008AC679 /* PCBZCustomAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DFD41A21BF19F2D008AC679 /* PCBZCustomAlertView.m */; };
+		9DFD41AF1BF19F39008AC679 /* CustomActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DFD41A71BF19F39008AC679 /* CustomActionSheet.m */; };
+		9DFD41B01BF19F39008AC679 /* ShareActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DFD41A91BF19F39008AC679 /* ShareActionSheet.m */; };
+		9DFD41B11BF19F39008AC679 /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DFD41AC1BF19F39008AC679 /* UIColor+Hex.m */; };
+		9DFD41B21BF19F39008AC679 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DFD41AE1BF19F39008AC679 /* UIView+Extension.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,18 +57,18 @@
 		9DFD41751BF03F7E008AC679 /* CustomAlertViewUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CustomAlertViewUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DFD41791BF03F7E008AC679 /* CustomAlertViewUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomAlertViewUITests.m; sourceTree = "<group>"; };
 		9DFD417B1BF03F7E008AC679 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9DFD41881BF041B1008AC679 /* CustomActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomActionSheet.h; sourceTree = "<group>"; };
-		9DFD41891BF041B1008AC679 /* CustomActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomActionSheet.m; sourceTree = "<group>"; };
-		9DFD418A1BF041B1008AC679 /* CustomIOSAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomIOSAlertView.h; sourceTree = "<group>"; };
-		9DFD418B1BF041B1008AC679 /* CustomIOSAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomIOSAlertView.m; sourceTree = "<group>"; };
-		9DFD418F1BF044C3008AC679 /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
-		9DFD41901BF044C3008AC679 /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
-		9DFD41921BF04863008AC679 /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
-		9DFD41931BF04863008AC679 /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
-		9DFD41981BF050E5008AC679 /* ShareActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareActionSheet.h; sourceTree = "<group>"; };
-		9DFD41991BF050E5008AC679 /* ShareActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareActionSheet.m; sourceTree = "<group>"; };
-		9DFD419B1BF06BE0008AC679 /* PCBZCustomAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCBZCustomAlertView.h; sourceTree = "<group>"; };
-		9DFD419C1BF06BE0008AC679 /* PCBZCustomAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCBZCustomAlertView.m; sourceTree = "<group>"; };
+		9DFD419F1BF19F2D008AC679 /* CustomIOSAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomIOSAlertView.h; sourceTree = "<group>"; };
+		9DFD41A01BF19F2D008AC679 /* CustomIOSAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomIOSAlertView.m; sourceTree = "<group>"; };
+		9DFD41A11BF19F2D008AC679 /* PCBZCustomAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCBZCustomAlertView.h; sourceTree = "<group>"; };
+		9DFD41A21BF19F2D008AC679 /* PCBZCustomAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCBZCustomAlertView.m; sourceTree = "<group>"; };
+		9DFD41A61BF19F39008AC679 /* CustomActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomActionSheet.h; sourceTree = "<group>"; };
+		9DFD41A71BF19F39008AC679 /* CustomActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomActionSheet.m; sourceTree = "<group>"; };
+		9DFD41A81BF19F39008AC679 /* ShareActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareActionSheet.h; sourceTree = "<group>"; };
+		9DFD41A91BF19F39008AC679 /* ShareActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareActionSheet.m; sourceTree = "<group>"; };
+		9DFD41AB1BF19F39008AC679 /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
+		9DFD41AC1BF19F39008AC679 /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
+		9DFD41AD1BF19F39008AC679 /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
+		9DFD41AE1BF19F39008AC679 /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,8 +123,9 @@
 				9DFD41581BF03F7D008AC679 /* AppDelegate.m */,
 				9DFD415A1BF03F7D008AC679 /* ViewController.h */,
 				9DFD415B1BF03F7D008AC679 /* ViewController.m */,
-				9DFD418E1BF044AD008AC679 /* Tools */,
-				9DFD41871BF03FC4008AC679 /* View */,
+				9DFD41AA1BF19F39008AC679 /* Tools */,
+				9DFD41A51BF19F39008AC679 /* ActionSheet */,
+				9DFD419E1BF19F2D008AC679 /* AlertView */,
 				9DFD415D1BF03F7D008AC679 /* Main.storyboard */,
 				9DFD41601BF03F7D008AC679 /* Assets.xcassets */,
 				9DFD41621BF03F7D008AC679 /* LaunchScreen.storyboard */,
@@ -160,30 +161,39 @@
 			path = CustomAlertViewUITests;
 			sourceTree = "<group>";
 		};
-		9DFD41871BF03FC4008AC679 /* View */ = {
+		9DFD419E1BF19F2D008AC679 /* AlertView */ = {
 			isa = PBXGroup;
 			children = (
-				9DFD41981BF050E5008AC679 /* ShareActionSheet.h */,
-				9DFD41991BF050E5008AC679 /* ShareActionSheet.m */,
-				9DFD41881BF041B1008AC679 /* CustomActionSheet.h */,
-				9DFD41891BF041B1008AC679 /* CustomActionSheet.m */,
-				9DFD418A1BF041B1008AC679 /* CustomIOSAlertView.h */,
-				9DFD418B1BF041B1008AC679 /* CustomIOSAlertView.m */,
-				9DFD419B1BF06BE0008AC679 /* PCBZCustomAlertView.h */,
-				9DFD419C1BF06BE0008AC679 /* PCBZCustomAlertView.m */,
+				9DFD419F1BF19F2D008AC679 /* CustomIOSAlertView.h */,
+				9DFD41A01BF19F2D008AC679 /* CustomIOSAlertView.m */,
+				9DFD41A11BF19F2D008AC679 /* PCBZCustomAlertView.h */,
+				9DFD41A21BF19F2D008AC679 /* PCBZCustomAlertView.m */,
 			);
-			name = View;
+			path = AlertView;
 			sourceTree = "<group>";
 		};
-		9DFD418E1BF044AD008AC679 /* Tools */ = {
+		9DFD41A51BF19F39008AC679 /* ActionSheet */ = {
 			isa = PBXGroup;
 			children = (
-				9DFD418F1BF044C3008AC679 /* UIColor+Hex.h */,
-				9DFD41901BF044C3008AC679 /* UIColor+Hex.m */,
-				9DFD41921BF04863008AC679 /* UIView+Extension.h */,
-				9DFD41931BF04863008AC679 /* UIView+Extension.m */,
+				9DFD41A61BF19F39008AC679 /* CustomActionSheet.h */,
+				9DFD41A71BF19F39008AC679 /* CustomActionSheet.m */,
+				9DFD41A81BF19F39008AC679 /* ShareActionSheet.h */,
+				9DFD41A91BF19F39008AC679 /* ShareActionSheet.m */,
+			);
+			name = ActionSheet;
+			path = AlertView/ActionSheet;
+			sourceTree = "<group>";
+		};
+		9DFD41AA1BF19F39008AC679 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				9DFD41AB1BF19F39008AC679 /* UIColor+Hex.h */,
+				9DFD41AC1BF19F39008AC679 /* UIColor+Hex.m */,
+				9DFD41AD1BF19F39008AC679 /* UIView+Extension.h */,
+				9DFD41AE1BF19F39008AC679 /* UIView+Extension.m */,
 			);
 			name = Tools;
+			path = AlertView/Tools;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -316,15 +326,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9DFD418C1BF041B1008AC679 /* CustomActionSheet.m in Sources */,
-				9DFD41911BF044C3008AC679 /* UIColor+Hex.m in Sources */,
+				9DFD41B21BF19F39008AC679 /* UIView+Extension.m in Sources */,
+				9DFD41AF1BF19F39008AC679 /* CustomActionSheet.m in Sources */,
+				9DFD41A31BF19F2D008AC679 /* CustomIOSAlertView.m in Sources */,
 				9DFD415C1BF03F7D008AC679 /* ViewController.m in Sources */,
-				9DFD41941BF04863008AC679 /* UIView+Extension.m in Sources */,
+				9DFD41B01BF19F39008AC679 /* ShareActionSheet.m in Sources */,
+				9DFD41A41BF19F2D008AC679 /* PCBZCustomAlertView.m in Sources */,
+				9DFD41B11BF19F39008AC679 /* UIColor+Hex.m in Sources */,
 				9DFD41591BF03F7D008AC679 /* AppDelegate.m in Sources */,
 				9DFD41561BF03F7D008AC679 /* main.m in Sources */,
-				9DFD419D1BF06BE0008AC679 /* PCBZCustomAlertView.m in Sources */,
-				9DFD418D1BF041B1008AC679 /* CustomIOSAlertView.m in Sources */,
-				9DFD419A1BF050E5008AC679 /* ShareActionSheet.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
