@@ -35,7 +35,7 @@ struct buttonParams
 
 @property (nonatomic, assign) NSArray *buttonCache;
 
-@property struct buttonParams *buttonStyles;
+@property (nonatomic, strong) NSArray *buttonStyles;
 
 @property (copy) void (^onButtonTouchUpInside)(CustomIOSAlertView *alertView, int buttonIndex) ;
 
@@ -46,7 +46,7 @@ struct buttonParams
  */
 - (id)initWithParentView: (UIView *)_parentView __attribute__ ((deprecated));
 
-- (void)addButtonsToView:(UIView *)container WithButton:(struct buttonParams *)buttonStyles;
+- (void)addButtonsToView:(UIView *)container WithButton:(NSArray *)buttonStyles;
 
 /**
  *  显示和隐藏

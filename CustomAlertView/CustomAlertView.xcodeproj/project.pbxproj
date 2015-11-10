@@ -19,8 +19,8 @@
 		9DFD418D1BF041B1008AC679 /* CustomIOSAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DFD418B1BF041B1008AC679 /* CustomIOSAlertView.m */; };
 		9DFD41911BF044C3008AC679 /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DFD41901BF044C3008AC679 /* UIColor+Hex.m */; };
 		9DFD41941BF04863008AC679 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DFD41931BF04863008AC679 /* UIView+Extension.m */; };
-		9DFD41971BF04A4D008AC679 /* ChargeAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DFD41961BF04A4D008AC679 /* ChargeAlertView.m */; };
 		9DFD419A1BF050E5008AC679 /* ShareActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DFD41991BF050E5008AC679 /* ShareActionSheet.m */; };
+		9DFD419D1BF06BE0008AC679 /* PCBZCustomAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DFD419C1BF06BE0008AC679 /* PCBZCustomAlertView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,10 +65,10 @@
 		9DFD41901BF044C3008AC679 /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
 		9DFD41921BF04863008AC679 /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
 		9DFD41931BF04863008AC679 /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
-		9DFD41951BF04A4D008AC679 /* ChargeAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChargeAlertView.h; sourceTree = "<group>"; };
-		9DFD41961BF04A4D008AC679 /* ChargeAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChargeAlertView.m; sourceTree = "<group>"; };
 		9DFD41981BF050E5008AC679 /* ShareActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareActionSheet.h; sourceTree = "<group>"; };
 		9DFD41991BF050E5008AC679 /* ShareActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareActionSheet.m; sourceTree = "<group>"; };
+		9DFD419B1BF06BE0008AC679 /* PCBZCustomAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCBZCustomAlertView.h; sourceTree = "<group>"; };
+		9DFD419C1BF06BE0008AC679 /* PCBZCustomAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCBZCustomAlertView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,10 +167,10 @@
 				9DFD41991BF050E5008AC679 /* ShareActionSheet.m */,
 				9DFD41881BF041B1008AC679 /* CustomActionSheet.h */,
 				9DFD41891BF041B1008AC679 /* CustomActionSheet.m */,
-				9DFD41951BF04A4D008AC679 /* ChargeAlertView.h */,
-				9DFD41961BF04A4D008AC679 /* ChargeAlertView.m */,
 				9DFD418A1BF041B1008AC679 /* CustomIOSAlertView.h */,
 				9DFD418B1BF041B1008AC679 /* CustomIOSAlertView.m */,
+				9DFD419B1BF06BE0008AC679 /* PCBZCustomAlertView.h */,
+				9DFD419C1BF06BE0008AC679 /* PCBZCustomAlertView.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -317,12 +317,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				9DFD418C1BF041B1008AC679 /* CustomActionSheet.m in Sources */,
-				9DFD41971BF04A4D008AC679 /* ChargeAlertView.m in Sources */,
 				9DFD41911BF044C3008AC679 /* UIColor+Hex.m in Sources */,
 				9DFD415C1BF03F7D008AC679 /* ViewController.m in Sources */,
 				9DFD41941BF04863008AC679 /* UIView+Extension.m in Sources */,
 				9DFD41591BF03F7D008AC679 /* AppDelegate.m in Sources */,
 				9DFD41561BF03F7D008AC679 /* main.m in Sources */,
+				9DFD419D1BF06BE0008AC679 /* PCBZCustomAlertView.m in Sources */,
 				9DFD418D1BF041B1008AC679 /* CustomIOSAlertView.m in Sources */,
 				9DFD419A1BF050E5008AC679 /* ShareActionSheet.m in Sources */,
 			);

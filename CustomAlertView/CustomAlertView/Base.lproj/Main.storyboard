@@ -32,7 +32,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1PS-Jk-pQ1">
                                 <rect key="frame" x="252" y="214" width="96" height="38"/>
                                 <animations/>
-                                <state key="normal" title="AlertView"/>
+                                <state key="normal" title="AlertView">
+                                    <color key="titleShadowColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <connections>
                                     <action selector="ClickAlertView:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kDN-Xt-hCv"/>
                                 </connections>

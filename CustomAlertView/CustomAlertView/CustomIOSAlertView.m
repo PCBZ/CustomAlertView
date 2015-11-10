@@ -58,10 +58,18 @@ CGFloat buttonSpacerHeight = 0.5;
     return self;
 }
 
+- (UIView *)backgroundView
+{
+    if (!_backgroundView) {
+        _backgroundView = [[UIView alloc] initWithFrame:self.bounds];
+        [self addSubview:_backgroundView];
+    }
+    return _backgroundView;
+}
+
 // Create the dialog view, and animate opening the dialog
 - (void)show
 {
-    
     dialogView = [self createContainerView];
   
     dialogView.layer.shouldRasterize = YES;
@@ -197,6 +205,7 @@ CGFloat buttonSpacerHeight = 0.5;
     if (!_containerView) {
         _containerView = [[UIView alloc] init];
     }
+//    [_containerView setNeedsDisplay];
     return _containerView;
 }
 
@@ -268,9 +277,8 @@ CGFloat buttonSpacerHeight = 0.5;
     
 }
 
-
 // Helper function: add buttons to container
-- (void)addButtonsToView:(UIView *)container WithButton:(struct buttonParams *)buttonStyles
+- (void)addButtonsToView:(UIView *)container WithButton:(NSArray *)buttonStyles
 {
     if (!buttonTitles) { return; }
 
@@ -281,28 +289,29 @@ CGFloat buttonSpacerHeight = 0.5;
 
     for (int i=0; i<[buttonTitles count]; i++) {
 
-        UIButton *closeButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        UIButton *closeButton = [UIButton buttonWithType:UIButtonTypeSystem];
 
-        
         [closeButton setFrame:CGRectMake(0, container.bounds.size.height - buttonHeight * buttonTitles.count + i * buttonHeight, buttonWidth, buttonHeight)];
         
-
         [closeButton addTarget:self action:@selector(customIOS7dialogButtonTouchUpInside:) forControlEvents:UIControlEventTouchUpInside];
         [closeButton setTag:i];
 
+        UIColor *buttonTextColor      = [buttonStyles[i] objectForKey:@"buttonColor"];
+        UIFont  *buttonFont           = [buttonStyles[i] objectForKey:@"buttonFont"];
+        UIColor *buttonBackgoundColor = [buttonStyles[i] objectForKey:@"backgroundColor"];
         
         if ([buttonTitles[i] isKindOfClass:[NSString class]]) {
             [closeButton setTitle:buttonTitles[i] forState:UIControlStateNormal];
-            [closeButton setTitleColor:[UIColor colorWithHex:buttonStyles[i].textColor] forState:UIControlStateNormal];
-            [closeButton.titleLabel setFont:[UIFont systemFontOfSize:buttonStyles[i].font]];
+            [closeButton setTitleColor:buttonTextColor forState:UIControlStateNormal];
+            [closeButton.titleLabel setFont:buttonFont];
         } else if ([buttonTitles[i] isKindOfClass:[NSMutableAttributedString class]]) {
             NSMutableAttributedString *attriText = buttonTitles[i];
-            [attriText addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithHex:buttonStyles[i].textColor] range:NSMakeRange(0, attriText.length)];
-            [attriText addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:buttonStyles[i].font] range:NSMakeRange(0, attriText.length)];
+            [attriText addAttribute:NSForegroundColorAttributeName value:buttonTextColor range:NSMakeRange(0, attriText.length)];
+            [attriText addAttribute:NSFontAttributeName value:buttonFont range:NSMakeRange(0, attriText.length)];
             [closeButton setAttributedTitle:buttonTitles[i] forState:UIControlStateNormal];
         }
         
-        [closeButton setBackgroundColor:[UIColor colorWithHex:buttonStyles[i].backgroundColor]];
+        [closeButton setBackgroundColor:buttonBackgoundColor];
 
         [container addSubview:closeButton];
         
